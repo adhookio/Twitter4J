@@ -113,6 +113,7 @@ public final class HttpParameter implements Comparable<HttpParameter>, java.io.S
     private static final String GIF = "image/gif";
     private static final String PNG = "image/png";
     private static final String OCTET = "application/octet-stream";
+    private static final String JSON = "application/json";
 
     /**
      * @return content-type
@@ -126,7 +127,7 @@ public final class HttpParameter implements Comparable<HttpParameter>, java.io.S
         int index = extensions.lastIndexOf(".");
         if (-1 == index) {
             // no extension
-            contentType = OCTET;
+            contentType = JSON;
         } else {
             extensions = extensions.substring(extensions.lastIndexOf(".") + 1).toLowerCase();
             if (extensions.length() == 3) {
@@ -146,7 +147,7 @@ public final class HttpParameter implements Comparable<HttpParameter>, java.io.S
                     contentType = OCTET;
                 }
             } else {
-                contentType = OCTET;
+                contentType = JSON;
             }
         }
         return contentType;
